@@ -1,0 +1,28 @@
+<div class="search-bar-container">
+    <input
+      type="text"
+      placeholder="Search by ISBN"
+      [(ngModel)]="searchIsbn"
+      (input)="filterBooks()"
+    />
+  
+    <input
+      type="text"
+      placeholder="Search by Name"
+      [(ngModel)]="searchName"
+      (input)="filterBooks()"
+    />
+  </div>
+  
+  <div class="book-grid">
+    <div class="book-card" *ngFor="let book of books">
+       
+        <h2 class="book-title">{{ book.title }}</h2>
+        <p class="book-author">By {{ book.author }}</p>
+        <p class="book-description"> book.isAvailabl </p>
+        
+        <button class="more-info-btn" (click)="showMore(book)">More Info</button>
+      </div>
+      
+  </div>
+  

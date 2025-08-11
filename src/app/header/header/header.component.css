@@ -1,0 +1,63 @@
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+    padding: 0 1rem;
+    min-height: 80px;
+  
+    background: linear-gradient(to right, #A67B5B, #C1916E);
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-bottom: 2px solid #8A6D52;
+    border-radius: 0 0 24px 24px;
+  
+    overflow-x: hidden; /* prevents horizontal scroll */
+    flex-wrap: wrap; /* allows content to wrap on smaller screens */
+    gap: 1rem;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Playfair Display', serif;
+    flex-shrink: 0; /* prevents logo from shrinking too much */
+  }
+  
+  .nav {
+    flex: 1; /* takes remaining space */
+    min-width: 0; /* important for flex shrink to work */
+  }
+  
+  .nav ul {
+    display: flex;
+    flex-wrap: wrap; /* allows wrapping if too many links */
+    gap: 0.5rem;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+    white-space: nowrap; /* keeps each link in one line */
+  }
+  
+  .nav a:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+  
+  .user-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0; /* keeps icons visible */
+  }
+  

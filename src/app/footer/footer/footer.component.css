@@ -1,0 +1,120 @@
+/* ===== FOOTER ===== */
+.footer {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-bottom: 0;
+  
+    background-color: #A67B5B;
+    background-image: linear-gradient(to right, #A67B5B 0%, #C1916E 100%);
+    color: white;
+    box-shadow: 
+      0 -4px 12px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  
+    border-radius: 24px 24px 0 0;
+    border-top: 2px solid #8A6D52;
+  
+    font-family: 'Lato', sans-serif;
+  }
+  
+  /* Main Content Layout */
+  .footer-content {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+  
+  .footer-section {
+    flex: 1;
+    min-width: 220px;
+  }
+  
+  .footer-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+  }
+  
+  .footer-section p {
+    margin: 0.25rem 0;
+    font-size: 0.95rem;
+  }
+  
+  /* Links */
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: #F0E6DC;
+  }
+  
+  /* Inspirational Quote */
+  .footer-quote {
+    background-color: rgba(0, 0, 0, 0.15);
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 1.8rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #FFF;
+    max-width: 1000px;
+    margin: auto;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+  }
+  
+  /* Bottom Bar */
+  .footer-bottom {
+    background-color: rgba(0, 0, 0, 0.15);
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.85rem;
+    border-radius: 0 0 24px 24px;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+    }
+    .footer-section {
+      min-width: 100%;
+    }
+    .footer-quote {
+      font-size: 1.4rem;
+      padding: 1rem;
+    }
+  }
+  

@@ -1,0 +1,1104 @@
+/* General page styling with light brown background */
+body {
+    background-color: #F5E6CC; /* Light brown background */
+    margin: 0;
+    padding: 0;
+    font-family: 'Georgia', serif;
+    color: #3C2F2F; /* Dark brown text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+  
+  /* Explicitly ensuring HTML background */
+  html {
+    background-color: #F5E6CC; /* Light brown to prevent white background */
+    height: 100%;
+  }
+  
+  /* Form container styling with centered alignment */
+  .form-container {
+    background-color: #E6D2AA; /* Slightly darker light brown */
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 450px;
+    margin: 20px auto; /* Centered with auto margins */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Added for internal centering */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Hover effect for form container */
+  .form-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+  }
+  
+  /* Form styling */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%; /* Ensure form takes full container width */
+  }
+  
+  /* Input fields styling */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    padding: 12px 16px;
+    border: 2px solid #A67B5B; /* Medium brown border */
+    border-radius: 8px;
+    font-size: 16px;
+    color: #3C2F2F; /* Dark brown text */
+    background-color: #FFF8E7; /* Very light cream background */
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Input focus state */
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    border-color: #8B5A2B; /* Darker brown on focus */
+    box-shadow: 0 0 8px rgba(139, 90, 43, 0.3);
+    background-color: #FFFFFF;
+  }
+  
+  /* Input placeholder styling */
+  input::placeholder {
+    color: #A67B5B; /* Medium brown placeholder */
+    opacity: 0.7;
+    font-style: italic;
+  }
+  
+  /* Button styling */
+  button[type="submit"] {
+    background-color: #8B5A2B; /* Medium-dark brown button */
+    color: #FFF8E7; /* Light cream text */
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  /* Button hover effect */
+  button[type="submit"]:hover {
+    background-color: #6F4E37; /* Darker brown on hover */
+    transform: scale(1.05);
+  }
+  
+  /* Button active state */
+  button[type="submit"]:active {
+    background-color: #5C4033;
+    transform: scale(0.98);
+  }
+  
+  /* Input invalid state */
+  input:invalid {
+    border-color: #A63A3A; /* Reddish-brown for error */
+  }
+  
+  /* Input valid state */
+  input:valid {
+    border-color: #7A4F2A; /* Slightly darker brown for valid */
+  }
+  
+  /* Form labels (if added later) */
+  label {
+    font-size: 14px;
+    color: #3C2F2F;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 600px) {
+    .form-container {
+      padding: 20px;
+      margin: 10px auto; /* Centered on smaller screens */
+      max-width: 90%;
+    }
+  
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      font-size: 14px;
+      padding: 10px;
+    }
+  
+    button[type="submit"] {
+      font-size: 16px;
+      padding: 10px;
+    }
+  }
+  
+  /* Additional styling for accessibility */
+  input:focus-visible {
+    outline: 3px solid #8B5A2B;
+    outline-offset: 2px;
+  }
+  
+  button:focus-visible {
+    outline: 3px solid #FFF8E7;
+    outline-offset: 2px;
+  }
+  
+  /* Form container animation on load */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .form-container {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  /* Additional brown-themed accents */
+  .form-container::before {
+    content: '';
+    display: block;
+    height: 4px;
+    background: linear-gradient(to right, #8B5A2B, #A67B5B);
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+  
+  /* Input hover effect */
+  input[type="text"]:hover,
+  input[type="email"]:hover,
+  input[type="password"]:hover {
+    border-color: #7A4F2A;
+    background-color: #FFF8E7;
+  }
+  
+  /* Ensuring form consistency */
+  input {
+    box-sizing: border-box;
+    width: 100%;
+  }
+  
+  /* Button disabled state */
+  button[type="submit"]:disabled {
+    background-color: #A67B5B;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+  
+  /* Form container border */
+  .form-container {
+    border: 1px solid #A67B5B;
+  }
+  
+  /* Additional typography tweaks */
+  input, button {
+    font-family: 'Georgia', serif;
+  }
+  
+  /* Ensuring consistent spacing */
+  .form-container > form > * {
+    margin-bottom: 10px;
+  }
+  
+  /* Last child margin fix */
+  .form-container > form > *:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Subtle gradient background for inputs */
+  input {
+    background: linear-gradient(to bottom, #FFF8E7, #F5E6CC);
+  }
+  
+  /* Button gradient */
+  button[type="submit"] {
+    background: linear-gradient(to bottom, #8B5A2B, #6F4E37);
+  }
+  
+  /* Ensuring smooth transitions */
+  input, button {
+    transition: all 0.3s ease;
+  }
+  
+  /* High contrast mode for accessibility */
+  @media (prefers-contrast: high) {
+    .form-container {
+      background-color: #D2B48C;
+      border: 2px solid #3C2F2F;
+    }
+  
+    input {
+      border: 2px solid #3C2F2F;
+      background-color: #FFFFFF;
+    }
+  
+    button[type="submit"] {
+      background-color: #3C2F2F;
+      color: #FFFFFF;
+    }
+  }
+  
+  /* Reduced motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .form-container, input, button {
+      transition: none;
+    }
+  
+    .form-container {
+      animation: none;
+    }
+  }
+  
+  /* Additional brown shades for depth */
+  .form-container {
+    background: linear-gradient(to bottom, #E6D2AA, #D9C2A6);
+  }
+  
+  /* Input field shadow */
+  input {
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Button shadow */
+  button[type="submit"] {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Input border radius consistency */
+  input {
+    border-radius: 8px;
+  }
+  
+  /* Button border radius consistency */
+  button {
+    border-radius: 8px;
+  }
+  
+  /* Form padding */
+  form {
+    padding: 10px;
+  }
+  
+  /* Ensuring no outline on button click */
+  button:focus {
+    outline: none;
+  }
+  
+  /* Additional hover effects for inputs */
+  input:hover {
+    box-shadow: 0 0 10px rgba(139, 90, 43, 0.2);
+  }
+  
+  /* Ensuring button text alignment */
+  button {
+    text-align: center;
+  }
+  
+  /* Input field margin */
+  input {
+    margin-bottom: 15px;
+  }
+  
+  /* Form container max height */
+  .form-container {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  /* Scrollbar styling */
+  .form-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .form-container::-webkit-scrollbar-track {
+    background: #F5E6CC;
+  }
+  
+  .form-container::-webkit-scrollbar-thumb {
+    background: #8B5A2B;
+    border-radius: 4px;
+  }
+  
+  .form-container::-webkit-scrollbar-thumb:hover {
+    background: #6F4E37;
+  }
+  
+  /* Ensuring consistent font sizes */
+  input {
+    font-size: 16px;
+  }
+  
+  button {
+    font-size: 18px;
+  }
+  
+  /* Ensuring no text decoration on button */
+  button {
+    text-decoration: none;
+  }
+  
+  /* Ensuring proper cursor on inputs */
+  input {
+    cursor: text;
+  }
+  
+  /* Ensuring proper cursor on button */
+  button {
+    cursor: pointer;
+  }
+  
+  /* Additional accessibility for focus states */
+  input:focus, button:focus {
+    outline-offset: 3px;
+  }
+  
+  /* Ensuring no unwanted margins */
+  body, html {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Ensuring full height for centering */
+  html {
+    height: 100%;
+  }
+  
+  /* Ensuring body takes full height */
+  body {
+    min-height: 100%;
+  }
+  
+  /* Ensuring no text overflow */
+  input, button {
+    overflow: hidden;
+  }
+  
+  /* Ensuring consistent line height */
+  input, button {
+    line-height: 1.5;
+  }
+  
+  /* Ensuring no unwanted borders */
+  input, button {
+    border-style: solid;
+  }
+  
+  /* Ensuring consistent border width */
+  input {
+    border-width: 2px;
+  }
+  
+  button {
+    border-width: 0;
+  }
+  
+  /* Ensuring no text transform */
+  input, button {
+    text-transform: none;
+  }
+  
+  /* Ensuring proper box sizing */
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Ensuring no unwanted padding */
+  html, body, form {
+    padding: 0;
+  }
+  
+  /* Ensuring no unwanted margins */
+  form {
+    margin: 0;
+  }
+  
+  /* Ensuring consistent font weight */
+  input {
+    font-weight: 400;
+  }
+  
+  button {
+    font-weight: 700;
+  }
+  
+  /* Ensuring no text overflow */
+  input {
+    text-overflow: ellipsis;
+  }
+  
+  /* Ensuring no unwanted outlines */
+  input, button {
+    outline: none;
+  }
+  
+  /* Ensuring proper display */
+  input, button {
+    display: block;
+  }
+  
+  /* Ensuring proper width for inputs */
+  input {
+    width: 100%;
+  }
+  
+  /* Ensuring proper width for button */
+  button {
+    width: 100%;
+  }
+  
+  /* Ensuring no text shadow */
+  input, button {
+    text-shadow: none;
+  }
+  
+  /* Ensuring no background repeat */
+  body, .form-container, input, button {
+    background-repeat: no-repeat;
+  }
+  
+  /* Ensuring no background position */
+  body, .form-container, input, button {
+    background-position: center;
+  }
+  
+  /* Ensuring no background size */
+  body, .form-container, input, button {
+    background-size: cover;
+  }
+  
+  /* Ensuring no unwanted z-index */
+  .form-container {
+    z-index: 1;
+  }
+  
+  /* Ensuring proper position */
+  .form-container {
+    position: relative;
+  }
+  
+  /* Ensuring no unwanted overflow */
+  body, html {
+    overflow-x: hidden;
+  }
+  
+  /* Ensuring proper text alignment */
+  input {
+    text-align: left;
+  }
+  
+  button {
+    text-align: center;
+  }
+  
+  /* Ensuring proper vertical alignment */
+  input, button {
+    vertical-align: middle;
+  }
+  
+  /* Ensuring no unwanted float */
+  input, button {
+    float: none;
+  }
+  
+  /* Ensuring no unwanted transform */
+  input {
+    transform: none;
+  }
+  
+  /* Ensuring proper opacity */
+  .form-container, input, button {
+    opacity: 1;
+  }
+  
+  /* Ensuring no unwanted pointer events */
+  input, button {
+    pointer-events: auto;
+  }
+  
+  /* Ensuring proper visibility */
+  .form-container, input, button {
+    visibility: visible;
+  }
+  
+  /* Ensuring no unwanted clip */
+  .form-container, input, button {
+    clip: auto;
+  }
+  
+  /* Ensuring proper display for form */
+  form {
+    display: block;
+  }
+  
+  /* Ensuring proper flex properties */
+  form {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+  }
+  
+  /* Ensuring proper alignment for inputs */
+  input {
+    align-self: stretch;
+  }
+  
+  /* Ensuring proper alignment for button */
+  button {
+    align-self: stretch;
+  }
+  
+  /* Ensuring no unwanted animation */
+  input {
+    animation: none;
+  }
+  
+  /* Ensuring proper padding for form */
+  form {
+    padding-bottom: 10px;
+  }
+  
+  /* Ensuring proper margin for inputs */
+  input {
+    margin-top: 5px;
+  }
+  
+  /* Ensuring proper margin for button */
+  button {
+    margin-top: 10px;
+  }
+  
+  /* Ensuring proper border radius for container */
+  .form-container {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+  
+  /* Ensuring proper border style */
+  .form-container {
+    border-style: solid;
+  }
+  
+  /* Ensuring proper border width */
+  .form-container {
+    border-width: 1px;
+  }
+  
+  /* Ensuring proper border color */
+  .form-container {
+    border-color: #A67B5B;
+  }
+  
+  /* Ensuring proper background blend mode */
+  .form-container, input, button {
+    background-blend-mode: normal;
+  }
+  
+  /* Ensuring proper box shadow for container */
+  .form-container {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Ensuring proper transition for container */
+  .form-container {
+    transition-property: transform, box-shadow;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+  }
+  
+  /* Ensuring proper transition for inputs */
+  input {
+    transition-property: border-color, box-shadow, background-color;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+  }
+  
+  /* Ensuring proper transition for button */
+  button {
+    transition-property: background-color, transform;
+    transition-duration: 0.3s, 0.2s;
+    transition-timing-function: ease;
+  }
+  
+  /* Ensuring proper font style */
+  input {
+    font-style: normal;
+  }
+  
+  /* Ensuring proper font variant */
+  input, button {
+    font-variant: normal;
+  }
+  
+  /* Ensuring proper letter spacing */
+  input, button {
+    letter-spacing: normal;
+  }
+  
+  /* Ensuring proper word spacing */
+  input, button {
+    word-spacing: normal;
+  }
+  
+  /* Ensuring proper text indent */
+  input, button {
+    text-indent: 0;
+  }
+  
+  /* Ensuring proper white space */
+  input, button {
+    white-space: normal;
+  }
+  
+  /* Ensuring proper overflow wrap */
+  input {
+    overflow-wrap: break-word;
+  }
+  
+  /* Ensuring proper word break */
+  input {
+    word-break: normal;
+  }
+  
+  /* Ensuring proper hyphens */
+  input {
+    hyphens: auto;
+  }
+  
+  /* Ensuring proper text rendering */
+  input, button {
+    text-rendering: auto;
+  }
+  
+  /* Ensuring proper font smoothing */
+  input, button {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Ensuring proper scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Ensuring proper touch action */
+  body {
+    touch-action: manipulation;
+  }
+  
+  /* Ensuring proper user select */
+  input, button {
+    user-select: none;
+  }
+  
+  /* Ensuring proper appearance */
+  input, button {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  
+  /* Ensuring proper outline style */
+  input:focus, button:focus {
+    outline-style: solid;
+  }
+  
+  /* Ensuring proper outline width */
+  input:focus, button:focus {
+    outline-width: 3px;
+  }
+  
+  /* Ensuring proper outline color */
+  input:focus {
+    outline-color: #8B5A2B;
+  }
+  
+  button:focus {
+    outline-color: #FFF8E7;
+  }
+  
+  /* Ensuring proper outline offset */
+  input:focus, button:focus {
+    outline-offset: 2px;
+  }
+  
+  /* Ensuring proper scrollbar width */
+  .form-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Ensuring proper scrollbar track background */
+  .form-container::-webkit-scrollbar-track {
+    background: #F5E6CC;
+  }
+  
+  /* Ensuring proper scrollbar thumb background */
+  .form-container::-webkit-scrollbar-thumb {
+    background: #8B5A2B;
+  }
+  
+  /* Ensuring proper scrollbar thumb border radius */
+  .form-container::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+  }
+  
+  /* Ensuring proper scrollbar thumb hover background */
+  .form-container::-webkit-scrollbar-thumb:hover {
+    background: #6F4E37;
+  }
+  
+  /* Ensuring proper container padding */
+  .form-container {
+    padding-top: 40px;
+    padding-right: 40px;
+    padding-bottom: 40px;
+    padding-left: 40px;
+  }
+  
+  /* Ensuring proper input padding */
+  input {
+    padding-top: 12px;
+    padding-right: 16px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+  }
+  
+  /* Ensuring proper button padding */
+  button {
+    padding-top: 12px;
+    padding-right: 12px;
+    padding-bottom: 12px;
+    padding-left: 12px;
+  }
+  
+  /* Ensuring proper form gap */
+  form {
+    gap: 20px;
+  }
+  
+  /* Ensuring proper container margin */
+  .form-container {
+    margin-top: 20px;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-left: auto;
+  }
+  
+  /* Ensuring proper body display */
+  body {
+    display: flex;
+  }
+  
+  /* Ensuring proper body justify content */
+  body {
+    justify-content: center;
+  }
+  
+  /* Ensuring proper body align items */
+  body {
+    align-items: center;
+  }
+  
+  /* Ensuring proper body min height */
+  body {
+    min-height: 100vh;
+  }
+  
+  /* Ensuring proper body line height */
+  body {
+    line-height: 1.6;
+  }
+  
+  /* Ensuring proper input background */
+  input {
+    background: linear-gradient(to bottom, #FFF8E7, #F5E6CC);
+  }
+  
+  /* Ensuring proper button background */
+  button {
+    background: linear-gradient(to bottom, #8B5A2B, #6F4E37);
+  }
+  
+  /* Ensuring proper container animation */
+  .form-container {
+    animation-name: fadeIn;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+  }
+  
+  /* Ensuring proper container pseudo element */
+  .form-container::before {
+    content: '';
+    display: block;
+    height: 4px;
+    background: linear-gradient(to right, #8B5A2B, #A67B5B);
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+  
+  /* Ensuring proper input hover border color */
+  input:hover {
+    border-color: #7A4F2A;
+  }
+  
+  /* Ensuring proper input hover background */
+  input:hover {
+    background-color: #FFF8E7;
+  }
+  
+  /* Ensuring proper input hover box shadow */
+  input:hover {
+    box-shadow: 0 0 10px rgba(139, 90, 43, 0.2);
+  }
+  
+  /* Ensuring proper button disabled background */
+  button:disabled {
+    background-color: #A67B5B;
+  }
+  
+  /* Ensuring proper button disabled cursor */
+  button:disabled {
+    cursor: not-allowed;
+  }
+  
+  /* Ensuring proper button disabled opacity */
+  button:disabled {
+    opacity: 0.6;
+  }
+  
+  /* Ensuring proper container border */
+  .form-container {
+    border: 1px solid #A67B5B;
+  }
+  
+  /* Ensuring proper typography */
+  input, button {
+    font-family: 'Georgia', serif;
+  }
+  
+  /* Ensuring proper input margin bottom */
+  input {
+    margin-bottom: 15px;
+  }
+  
+  /* Ensuring proper button margin top */
+  button {
+    margin-top: 10px;
+  }
+  
+  /* Ensuring proper container max height */
+  .form-container {
+    max-height: 90vh;
+  }
+  
+  /* Ensuring proper container overflow */
+  .form-container {
+    overflow-y: auto;
+  }
+  
+  /* Ensuring proper input font size */
+  input {
+    font-size: 16px;
+  }
+  
+  /* Ensuring proper button font size */
+  button {
+    font-size: 18px;
+  }
+  
+  /* Ensuring proper button text decoration */
+  button {
+    text-decoration: none;
+  }
+  
+  /* Ensuring proper input cursor */
+  input {
+    cursor: text;
+  }
+  
+  /* Ensuring proper button cursor */
+  button {
+    cursor: pointer;
+  }
+  
+  /* Ensuring proper body margin */
+  body {
+    margin: 0;
+  }
+  
+  /* Ensuring proper body padding */
+  body {
+    padding: 0;
+  }
+  
+  /* Ensuring proper html height */
+  html {
+    height: 100%;
+  }
+  
+  /* Ensuring proper body min height */
+  body {
+    min-height: 100%;
+  }
+  
+  /* Ensuring proper input text align */
+  input {
+    text-align: left;
+  }
+  
+  /* Ensuring proper button text align */
+  button {
+    text-align: center;
+  }
+  
+  /* Ensuring proper input vertical align */
+  input {
+    vertical-align: middle;
+  }
+  
+  /* Ensuring proper button vertical align */
+  button {
+    vertical-align: middle;
+  }
+  
+  /* Ensuring proper input width */
+  input {
+    width: 100%;
+  }
+  
+  /* Ensuring proper button width */
+  button {
+    width: 100%;
+  }
+  
+  /* Ensuring proper input text overflow */
+  input {
+    text-overflow: ellipsis;
+  }
+  
+  /* Ensuring proper input overflow wrap */
+  input {
+    overflow-wrap: break-word;
+  }
+  
+  /* Ensuring proper input word break */
+  input {
+    word-break: normal;
+  }
+  
+  /* Ensuring proper input hyphens */
+  input {
+    hyphens: auto;
+  }
+  
+  /* Ensuring proper input text rendering */
+  input {
+    text-rendering: auto;
+  }
+  
+  /* Ensuring proper button text rendering */
+  button {
+    text-rendering: auto;
+  }
+  
+  /* Ensuring proper input font smoothing */
+  input {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Ensuring proper button font smoothing */
+  button {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Ensuring proper body scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Ensuring proper body touch action */
+  body {
+    touch-action: manipulation;
+  }
+  
+  /* Ensuring proper input user select */
+  input {
+    user-select: none;
+  }
+  
+  /* Ensuring proper button user select */
+  button {
+    user-select: none;
+  }
+  
+  /* Ensuring proper input appearance */
+  input {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  
+  /* Ensuring proper button appearance */
+  button {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  
+  /* Ensuring proper input outline style */
+  input:focus {
+    outline-style: solid;
+  }
+  
+  /* Ensuring proper button outline style */
+  button:focus {
+    outline-style: solid;
+  }
+  
+  /* Ensuring proper input outline width */
+  input:focus {
+    outline-width: 3px;
+  }
+  
+  /* Ensuring proper button outline width */
+  button:focus {
+    outline-width: 3px;
+  }
+  
+  /* Ensuring proper input outline color */
+  input:focus {
+    outline-color: #8B5A2B;
+  }
+  
+  /* Ensuring proper button outline color */
+  button:focus {
+    outline-color: #FFF8E7;
+  }
+  
+  /* Ensuring proper input outline offset */
+  input:focus {
+    outline-offset: 2px;
+  }
+  
+  /* Ensuring proper button outline offset */
+  button:focus {
+    outline-offset: 2px;
+  }
