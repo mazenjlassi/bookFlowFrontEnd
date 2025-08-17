@@ -72,4 +72,27 @@
   .more-info-btn:hover {
     background-color: #8a6d52;
   }
+  /* Center the no-results message and make it stylish */
+/* Container to center the message vertically and horizontally */
+.no-results-container {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;     /* center vertically */
+  height: 70vh;            /* take most of the viewport height */
+}
+
+/* Style the message box */
+.no-results {
+  text-align: center;
+  font-size: 2rem;         /* larger text */
+  font-weight: 700;        /* bold */
+  color: #ff4d4f;          /* red */
+  padding: 30px 50px;
+  border: 2px dashed #ff4d4f;
+  border-radius: 12px;
+  background-color: #fff0f0;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+
   

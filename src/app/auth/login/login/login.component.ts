@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { catchError, finalize, of } from 'rxjs';
+import {jwtDecode} from 'jwt-decode';
 import { AuthService } from '../../../services/auth/auth.service';
 
 @Component({
@@ -25,13 +26,12 @@ export class LoginComponent {
       password: ['', [Validators.required]]
     });
   }
-
   onSubmit() {
     if (this.loginForm.invalid) return;
-
+  
     this.isLoading = true;
     this.errorMessage = '';
-
+  
     this.authService.login(this.loginForm.value)
       .pipe(
         catchError((err) => {
@@ -40,12 +40,30 @@ export class LoginComponent {
         }),
         finalize(() => this.isLoading = false)
       )
-      .subscribe((response) => {
-        if (response?.token) {
-          this.authService.setToken(response.token);
-          this.router.navigate(['/']); // Redirect to home/dashboard
+      .subscribe({
+        next: (response) => {
+          if (!response) return;
+  
+          console.log('Backend response:', response);
+  
+          // Save tokens
+          localStorage.setItem('authToken', response.accessToken);
+          
+  
+          // Decode token to get UserId
+          const decoded: any = jwtDecode(response.accessToken);
+          const userId = decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"];
+          localStorage.setItem('userId', userId);
+  
+          // Navigate to home page
+          this.router.navigate(['/home']);
+        },
+        error: (err) => {
+          console.error(err);
         }
       });
   }
+  
+  }
 
-}
+

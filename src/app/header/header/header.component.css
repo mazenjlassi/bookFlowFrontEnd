@@ -60,4 +60,27 @@
     gap: 0.5rem;
     flex-shrink: 0; /* keeps icons visible */
   }
+  /* header.component.css */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #a67b5b;
+  padding: 10px 20px;
+}
+
+.menu a,
+.menu button {
+  margin-left: 15px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.menu button:hover {
+  text-decoration: underline;
+}
+
   

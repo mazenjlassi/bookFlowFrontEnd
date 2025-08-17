@@ -31,6 +31,8 @@ export class AuthService {
   getToken(): string | null {
     return localStorage.getItem('authToken');
   }
+  
+  
 
   // Check if logged in
   isLoggedIn(): boolean {
@@ -40,6 +42,8 @@ export class AuthService {
   // Logout
   logout(): void {
     localStorage.removeItem('authToken');
+    localStorage.removeItem('userId')
     this.router.navigate(['/login']);
   }
+  
 }
