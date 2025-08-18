@@ -1,86 +1,137 @@
+/* ===== FIXED HORIZONTAL HEADER WITH ARCHED CORNERS ===== */
 .header {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  background: linear-gradient(to right, #A67B5B, #C1916E);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-bottom: 2px solid #8A6D52;
+  z-index: 1000;
   
-    padding: 0 1rem;
-    min-height: 80px;
+  /* Create arched corners */
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
   
-    background: linear-gradient(to right, #A67B5B, #C1916E);
-    color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    border-bottom: 2px solid #8A6D52;
-    border-radius: 0 0 24px 24px;
-  
-    overflow-x: hidden; /* prevents horizontal scroll */
-    flex-wrap: wrap; /* allows content to wrap on smaller screens */
-    gap: 1rem;
-  }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-family: 'Playfair Display', serif;
-    flex-shrink: 0; /* prevents logo from shrinking too much */
-  }
-  
-  .nav {
-    flex: 1; /* takes remaining space */
-    min-width: 0; /* important for flex shrink to work */
-  }
-  
-  .nav ul {
-    display: flex;
-    flex-wrap: wrap; /* allows wrapping if too many links */
-    gap: 0.5rem;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    transition: background 0.3s ease;
-    white-space: nowrap; /* keeps each link in one line */
-  }
-  
-  .nav a:hover {
-    background: rgba(255, 255, 255, 0.15);
-  }
-  
-  .user-actions {
-    display: flex;
-    gap: 0.5rem;
-    flex-shrink: 0; /* keeps icons visible */
-  }
-  /* header.component.css */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #a67b5b;
-  padding: 10px 20px;
+  /* Clip the content to follow the border radius */
+  overflow: hidden;
 }
 
-.menu a,
-.menu button {
-  margin-left: 15px;
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  /* Ensure content respects the header's border radius */
+  position: relative;
+  z-index: 1;
+}
+
+/* Rest of your existing CSS remains exactly the same */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.logo-icon {
+  font-size: 2rem;
+}
+
+.logo-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.nav {
+  flex-grow: 1;
+  padding: 0 2rem;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.user-actions {
+  display: flex;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.user-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   background: none;
   border: none;
   color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 16px;
+  transition: background 0.2s ease;
 }
 
-.menu button:hover {
-  text-decoration: underline;
+.user-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
 }
 
+.user-icon {
+  font-size: 1.3rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .header-container {
+    padding: 0 1rem;
+  }
   
+  .nav {
+    padding: 0 1rem;
+  }
+  
+  .nav-list {
+    gap: 0.8rem;
+  }
+  
+  .nav-link {
+    font-size: 1rem;
+    padding: 0.5rem 0.8rem;
+  }
+  
+  .user-btn {
+    padding: 0.5rem;
+  }
+  
+  .btn-text {
+    display: none;
+  }
+}

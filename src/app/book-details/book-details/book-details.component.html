@@ -1,75 +1,102 @@
 <div class="book-details-container">
-    <!-- Loading State -->
+  <!-- Book Meta Information -->
+  
+    <div class="book-details-container">
+      <!-- Book Meta Information -->
+      <div class="book-meta">
+        <h1 class="book-title">{{ book?.title }}</h1>
+        <p class="book-author">by {{ book?.author }}</p>
     
-  
-        
-  
-        <div class="book-meta">
-          <h1 class="book-title">{{book?.title}}</h1>
-          <p class="book-author">by {{book?.author}}</p>
-          <p class="book-description">{{book?.description}}</p>
-          <p class="book-isbn">ISBN: {{book?.isbn}}</p>
-          <p class="book-publisher">Publisher: {{book?.publisher}}</p>
-          <p class="book-published">Published: {{book?.publishedDate | date}}</p>
-        
-          
-          <div class="rating-display">
-            <div class="stars">
-              <span *ngFor="let star of [1,2,3,4,5]">
-                <i [class.filled]="star <= averageRating">★</i>
-              </span>
-              <span class="rating-value">{{averageRating | number:'1.1-1'}}</span>
-            </div>
-          </div>
-  
-          <div class="book-details">
-            <p><strong>ISBN:</strong> {{book?.isbn}}</p>
-            <p><strong>Publisher:</strong> {{book?.publisher}}</p>
-            <p><strong>Published:</strong> {{book?.publishedDate | date}}</p>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Book Description -->
-      <div class="book-description">
-        <h2>Description</h2>
-        <p>{{book?.description || 'No description available.'}}</p>
-      </div>
-  
-      <!-- Rating Section -->
-      <div class="rating-section">
-        <h2>Rate This Book</h2>
-        
-        
-  
-        
-        <div class="star-rating-input">
-            <span *ngFor="let star of [1,2,3,4,5]" 
-                  (click)="setUserRating(star)" 
-                  [class.active]="star <= userRating">
-              ★
+        <!-- Rating Display -->
+        <div class="rating-display">
+          <div class="stars">
+            <span *ngFor="let star of [1,2,3,4,5]">
+              <i [class.filled]="star <= averageRating">★</i>
             </span>
+            <span class="rating-value">{{ averageRating | number: '1.1-1' }}</span>
           </div>
-          
-  
-          <button class="submit-rating" 
-                  (click)="submitRating()" 
-                  [disabled]="userRating === 0 || isLoading">
-            {{isLoading ? 'Submitting...' : 'Submit Rating'}}
-          </button>
+         
         </div>
-  
-        <div *ngIf="userHasRated" class="user-rating-thanks">
-          <h3>Thanks for your rating!</h3>
-          <p>You rated this book {{userRating}} stars</p>
+    
+        <!-- Book Information -->
+        <div class="book-details">
+          <p><strong>ISBN:</strong> {{ book?.isbn }}</p>
+          <p><strong>Publisher:</strong> {{ book?.publisher }}</p>
+          <p><strong>Published:</strong> {{ book?.publishedDate | date }}</p>
         </div>
-     
-  
-      <!-- Action Buttons -->
-      <div class="action-buttons">
-        <button class="back-button" (click)="goBack()">
-          Back to List
-        </button>
+        
+    <!-- Loan Button -->
+    <div class="loan-section">
+      <button class="loan-button" (click)="loanBook()">
+        
+        Loan This Book
+      </button>
+    </div>
+  </div>
       </div>
+    </div>
+    
+    <!-- Book Description -->
+    <div class="book-description">
+      <h2>Description</h2>
+      <p>{{ book?.description || 'No description available.' }}</p>
+    </div>
+    
+    <!-- Rating Section -->
+    <div class="rating-section">
+      <h2>Rate This Book</h2>
+    
+      <div class="star-rating-input">
+        <span *ngFor="let star of [1,2,3,4,5]" 
+              (click)="setUserRating(star)" 
+              [class.active]="star <= userRating">
+          ★
+        </span>
+      </div>
+      <textarea [(ngModel)]="userComment" 
+      placeholder="Write your comment..." 
+      rows="3"
+      class="comment-input"></textarea>
+    
+      <button class="submit-rating" 
+              (click)="submitRating()" 
+              [disabled]="userRating === 0 || isLoading || !userComment">
+        {{ isLoading ? 'Submitting...' : 'Submit Rating' }}
+       
+
+      </button>
+    
+      <div *ngIf="userHasRated" class="user-rating-thanks">
+        <h3>Thanks for your rating!</h3>
+        <p>You rated this book {{ userRating }} stars</p>
+      </div>
+    </div>
+    
    
+      
+      
+
+  <!-- Show list of comments -->
+  <div class="comments-list" *ngIf="book?.ratings!== null || []">
+    <div *ngFor="let rating of book?.ratings" class="comment-item">
+      <div class="comment-header">
+        <strong>{{ rating.userName || 'Anonymous' }}</strong> 
+        <span class="stars">
+          <ng-container *ngFor="let star of [1,2,3,4,5]">
+            <span [class.filled]="star <= rating.stars">★</span>
+          </ng-container>
+        </span>
+      </div>
+      <p class="comment-text">{{ rating.comment }}</p>
+      <span class="comment-date">{{ rating.date | date:'short' }}</span>
+    </div>
+  </div>
+
   
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button class="back-button" (click)="goBack()">
+        Back to List
+      </button>
+    </div>
+    

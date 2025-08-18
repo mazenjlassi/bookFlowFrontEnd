@@ -1,25 +1,23 @@
 <header class="header">
+  <div class="header-container">
     <div class="logo">
       <span class="logo-icon">📚</span>
-      <h1>BookFlow</h1>
+      <h1 class="logo-text">BookFlow</h1>
     </div>
-  
+
     <nav class="nav">
-      <ul>
-        <li *ngFor="let link of navLinks">
-          <a href="#">{{ link }}</a>
+      <ul class="nav-list">
+        <li class="nav-item" *ngFor="let link of navLinks">
+          <a class="nav-link" href="#">{{ link }}</a>
         </li>
       </ul>
     </nav>
-  
+
     <div class="user-actions">
-      <a href="#" class="user-action-btn">
-        <button *ngIf="authService.isLoggedIn()" (click)="logout()">Logout</button>
-        <span class="user-action-icon">👤</span>
-      </a>
-      <a href="#" class="user-action-btn">
-       
-      </a>
+      <button class="user-btn" *ngIf="authService.isLoggedIn()" (click)="logout()">
+        <span class="btn-text">Logout</span>
+        <span class="user-icon">👤</span>
+      </button>
     </div>
-  </header>
-  
+  </div>
+</header>
