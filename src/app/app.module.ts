@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home/home.component';
 import { BookDetailsComponent } from './book-details/book-details/book-details.component';
 import { AuthService } from './services/auth/auth.service';
 import { AuthInterceptor } from './services/auth/auth-interceptor.service';
+import { ConfirmLoanComponent } from './confirm-loan/confirm-loan/confirm-loan.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AuthInterceptor } from './services/auth/auth-interceptor.service';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    ConfirmLoanComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,28 @@
+<div class="loan-container">
+    <!-- Initial confirmation view -->
+    <div class="confirmation-section" *ngIf="!loan">
+      <p>Do you want to borrow this book?</p>
+      <div class="button-group">
+        <button class="confirm-button" (click)="confirmLoan()">Yes, confirm</button>
+        <button class="cancel-button" (click)="cancel()">Cancel</button>
+      </div>
+    </div>
+    
+    <!-- Loan confirmation details view -->
+    <div *ngIf="loan">
+      <div class="confirmation-section">
+        <h2>Loan Confirmation</h2>
+      </div>
+      
+      <div class="loan-details">
+        <p><strong>Book:</strong> {{ loan.bookTitle }}</p>
+        <p><strong>User:</strong> {{ loan.userName }}</p>
+        <p><strong>Start Date:</strong> {{ loan.startDate | date:'medium' }}</p>
+        <p><strong>Status:</strong> <span class="status-badge">{{ loan.status }}</span></p>
+      </div>
+      
+      <div class="button-group">
+        <button class="cancel-button" (click)="cancel()">Cancel</button>
+      </div>
+    </div>
+  </div>

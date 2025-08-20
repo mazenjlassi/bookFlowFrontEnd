@@ -14,8 +14,13 @@ import { Rating } from '../../models/rating';
 })
 export class BookDetailsComponent {
 loanBook() {
-throw new Error('Method not implemented.');
-}  book: Book | null = null;
+  if (this.book) {
+    this.router.navigate(['/confirm-loan', this.book.id]);
+  }
+} 
+
+
+book: Book | null = null;
   bookId: string = '';
   userRating: number = 0;
   userComment: string = '';

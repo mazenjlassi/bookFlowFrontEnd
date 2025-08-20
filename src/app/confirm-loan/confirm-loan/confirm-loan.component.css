@@ -1,0 +1,187 @@
+/* ========== Loan Confirmation Styles ========== */
+.loan-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2.5rem;
+    font-family: 'Crimson Text', serif;
+    color: #5a4a42;
+    background-color: #fff9f5;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(166, 123, 91, 0.1);
+    text-align: center;
+  }
+  
+  /* ========== Confirmation Section ========== */
+  .confirmation-section {
+    margin-bottom: 2rem;
+  }
+  
+  .confirmation-section h2 {
+    font-size: 1.8rem;
+    color: #4a3526;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  
+  .confirmation-section h2::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, #A67B5B, #C1916E);
+    border-radius: 3px;
+  }
+  
+  .confirmation-section p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #5a4a42;
+    margin-bottom: 2rem;
+  }
+  
+  /* ========== Loan Details ========== */
+  .loan-details {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 5px 15px rgba(166, 123, 91, 0.08);
+    text-align: left;
+  }
+  
+  .loan-details p {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .loan-details strong {
+    color: #4a3526;
+    font-weight: 600;
+    margin-right: 1rem;
+  }
+  
+  /* ========== Button Styles ========== */
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .confirm-button {
+    background: linear-gradient(to right, #A67B5B, #C1916E);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(166, 123, 91, 0.2);
+  }
+  
+  .confirm-button:hover {
+    background: linear-gradient(to right, #9c6f4f, #b58560);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(166, 123, 91, 0.3);
+  }
+  
+  .cancel-button {
+    background-color: #fff;
+    color: #A67B5B;
+    border: 2px solid #A67B5B;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(166, 123, 91, 0.1);
+  }
+  
+  .cancel-button:hover {
+    background-color: #f9f1e8;
+    color: #8c654a;
+    border-color: #8c654a;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(166, 123, 91, 0.15);
+  }
+  
+  /* ========== Status Badge ========== */
+  .status-badge {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  .status-active {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+  }
+  
+  .status-pending {
+    background-color: #fff3e0;
+    color: #ef6c00;
+  }
+  
+  .status-completed {
+    background-color: #f5f5f5;
+    color: #616161;
+  }
+  
+  /* ========== Animations ========== */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .loan-details {
+    animation: fadeIn 0.5s ease;
+  }
+  
+  /* ========== Responsive Design ========== */
+  @media (max-width: 768px) {
+    .loan-container {
+      padding: 1.5rem;
+      margin: 1rem;
+    }
+    
+    .button-group {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .confirm-button, .cancel-button {
+      width: 100%;
+    }
+    
+    .loan-details p {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .loan-container {
+      padding: 1.2rem;
+      border-radius: 8px;
+    }
+    
+    .confirmation-section h2 {
+      font-size: 1.5rem;
+    }
+    
+    .confirmation-section p {
+      font-size: 1rem;
+    }
+  }
