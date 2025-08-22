@@ -39,6 +39,10 @@ export class AuthService {
     return !!this.getToken();
   }
 
+  getUserId(): string | null {
+    return localStorage.getItem('userId'); // assuming you store userId on login
+  }
+
   // Logout
   logout(): void {
     localStorage.removeItem('authToken');

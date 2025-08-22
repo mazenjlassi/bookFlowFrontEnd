@@ -14,6 +14,7 @@ import { BookDetailsComponent } from './book-details/book-details/book-details.c
 import { AuthService } from './services/auth/auth.service';
 import { AuthInterceptor } from './services/auth/auth-interceptor.service';
 import { ConfirmLoanComponent } from './confirm-loan/confirm-loan/confirm-loan.component';
+import { UserLoansComponent } from './user-loans/user-loans/user-loans.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ConfirmLoanComponent } from './confirm-loan/confirm-loan/confirm-loan.c
     FooterComponent,
     HomeComponent,
     BookDetailsComponent,
-    ConfirmLoanComponent
+    ConfirmLoanComponent,
+    UserLoansComponent
   ],
   imports: [
     BrowserModule,

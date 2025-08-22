@@ -1,0 +1,28 @@
+<h2>Your Loans</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Book Title</th>
+      <th>Start Date</th>
+      <th>Return Date</th>
+      <th>Status</th>
+      <th>Actions</th> <!-- new column -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let loan of loans">
+      <td>{{ loan.bookTitle }}</td>
+      <td>{{ loan.startDate | date:'shortDate' }}</td>
+      <td>{{ loan.returnDate ? (loan.returnDate | date:'shortDate') : 'N/A' }}</td>
+      <td>{{ loan.status }}</td>
+      <td>
+        <button 
+          *ngIf="loan.status === 'EN_COURS'" 
+          (click)="deleteLoan(loan.id)"
+          class="delete-btn">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

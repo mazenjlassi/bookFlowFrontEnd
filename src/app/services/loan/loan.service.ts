@@ -1,14 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
+import { Loan } from '../../models/loan';
 
-export interface Loan {
-  id: string;
-  bookId: string;
-  userId: string;
-  status: string;
-  loanDate: Date;
-}
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -42,4 +38,13 @@ export class LoanService {
   getLoanById(id: string): Observable<Loan> {
     return this.http.get<Loan>(`${this.apiUrl}/${id}`);
   }
+
+  getLoansByUser(userId: string): Observable<Loan[]> {
+    return this.http.get<Loan[]>(`${this.apiUrl}/user/${userId}`);
+  }
+
+  deleteLoan(loanId: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/delete/${loanId}`);
+  }
+  
 }

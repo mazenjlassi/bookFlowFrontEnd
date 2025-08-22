@@ -8,13 +8,21 @@ import { AuthService } from '../../services/auth/auth.service';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  navLinks: { label: string, path: string }[] = [];
 
   constructor(public authService: AuthService) {}
-  navLinks = ['Home', 'Browse', 'Categories', 'About', 'Contact'];
+
+  ngOnInit(): void {
+    this.navLinks = [
+      { label: 'Home', path: '/home' },
+      { label: 'My Loans', path: `/user-loans/${this.authService.getUserId()}` },
+      { label: 'About', path: '/about' },
+      { label: 'Contact', path: '/contact' }
+    ];
+  }
 
   logout() {
     this.authService.logout();
-
   }
 
 
