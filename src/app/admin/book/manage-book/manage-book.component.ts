@@ -54,7 +54,7 @@ export class ManageBookComponent {
   
 
   viewBookDetails(book: Book)  {
-    this.router.navigate(['/book', book.id]);
+    this.router.navigate(['/admin/book',book.id]);
   }
 
   goToAddBook(): void {

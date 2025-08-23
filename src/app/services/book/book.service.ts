@@ -29,11 +29,13 @@ export class BookService {
 
   // Toggle availability of a book by ID
   updateAvailability(id: string): Observable<string> {
-    return this.http.put<string>(`${this.apiUrl}/update-availability/${id}`, null);
+    return this.http.put(`${this.apiUrl}/update-availability/${id}`, null, { responseType: 'text' }) as Observable<string>;
   }
+  
 
   // Delete a book by ID
-  deleteBook(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/delete/${id}`);
+  deleteBook(id: string): Observable<string> {
+    return this.http.delete(`${this.apiUrl}/delete/${id}`, { responseType: 'text' }) as Observable<string>;
   }
+  
 }

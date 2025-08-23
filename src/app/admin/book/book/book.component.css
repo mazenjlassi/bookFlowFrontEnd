@@ -1,0 +1,69 @@
+.book-details-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+  }
+  
+  .book-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .admin-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .toggle-btn, .delete-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    transition: background 0.3s;
+  }
+  
+  .toggle-btn {
+    background-color: #8a6d52;
+  }
+  
+  .toggle-btn:hover {
+    background-color: #7a5d45;
+  }
+  
+  .delete-btn {
+    background-color: #d9534f;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c9302c;
+  }
+  
+  .available {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .not-available {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .comments-section {
+    margin-top: 30px;
+  }
+  
+  .comment-item {
+    border-top: 1px solid #ccc;
+    padding: 10px 0;
+  }
+  
+  .stars .filled {
+    color: gold;
+  }
+  

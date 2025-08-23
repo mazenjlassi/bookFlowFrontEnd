@@ -1,1 +1,41 @@
-<p>book works!</p>
+<div class="book-details-container" *ngIf="book; else loading">
+    <h1 class="book-title">{{ book.title }}</h1>
+    <p><strong>Author:</strong> {{ book.author }}</p>
+    <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+    <p><strong>Publisher:</strong> {{ book.publisher }}</p>
+    <p><strong>Published Date:</strong> {{ book.publishedDate | date }}</p>
+    <p><strong>Description:</strong> {{ book.description }}</p>
+    <p>
+      <strong>Status:</strong>
+      <span [ngClass]="{ 'available': book.isAvailable, 'not-available': !book.isAvailable }">
+        {{ book.isAvailable ? 'Available' : 'Not Available' }}
+      </span>
+    </p>
+  
+    <div class="admin-actions">
+      <button class="toggle-btn" (click)="toggleAvailability()">
+        {{ book.isAvailable ? 'Mark as Unavailable' : 'Mark as Available' }}
+      </button>
+      <button class="delete-btn" (click)="deleteBook()">Delete Book</button>
+    </div>
+  
+    <!-- Ratings / Comments -->
+    <div class="comments-section" *ngIf="book.ratings?.length">
+      <h3>Ratings & Comments</h3>
+      <div *ngFor="let rating of book.ratings" class="comment-item">
+        <strong>{{ rating.userName || 'Anonymous' }}</strong>
+        <span class="stars">
+          <ng-container *ngFor="let star of [1,2,3,4,5]">
+            <span [class.filled]="star <= rating.stars">★</span>
+          </ng-container>
+        </span>
+        <p>{{ rating.comment }}</p>
+        <small>{{ rating.date | date:'short' }}</small>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #loading>
+    <p>Loading book details...</p>
+  </ng-template>
+  

@@ -8,7 +8,8 @@ import { ConfirmLoanComponent } from './confirm-loan/confirm-loan/confirm-loan.c
 import { UserLoansComponent } from './user-loans/user-loans/user-loans.component';
 import { AddBookComponent } from './admin/book/add-book/add-book.component';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard/admin-dashboard.component';
-import { ManageBookComponent } from './admin/manage-book/manage-book/manage-book.component';
+import { ManageBookComponent } from './admin/book/manage-book/manage-book.component';
+import { BookComponent } from './admin/book/book/book.component';
 
 const routes: Routes = [ 
   { path: 'register', component: RegisterComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'admin/book-add', component:AddBookComponent},
   {path:'admin/dashboard',component:AdminDashboardComponent},
   {path: 'admin/manage-book',component:ManageBookComponent},
+  {path: 'admin/book/:id',component:BookComponent},
   { path: '', component: LoginComponent },
  
   
