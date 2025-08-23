@@ -21,10 +21,11 @@ export class BookService {
     return this.http.get<Book>(`${this.apiUrl}/get-by-id/${id}`);
   }
 
-  // Add a new book
-  addBook(book: Book): Observable<Book> {
-    return this.http.post<Book>(`${this.apiUrl}/create`, book);
+  addBook(book: any): Observable<any> {
+    // POST body must match CreateBookDto
+    return this.http.post(`${this.apiUrl}/create`, book);
   }
+
 
   // Toggle availability of a book by ID
   updateAvailability(id: string): Observable<string> {

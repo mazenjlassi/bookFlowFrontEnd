@@ -95,28 +95,35 @@
 }
 
 
-.book-grid button {
-  display: block;
-  margin: 15px auto 0 auto; /* centers horizontally */
-  padding: 10px 25px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff;
-  background-color: #8a6d52; /* your desired color */
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.book-grid button:hover {
-  background-color: #7a5c47; /* slightly darker on hover */
-  transform: scale(1.05); /* subtle grow effect */
-}
-
-.book-grid button:active {
-  transform: scale(0.98); /* pressed effect */
-}
 
 
+.admin-actions {
+    display: flex;
+    justify-content: center; /* center horizontally */
+    margin: 20px 0;          /* some spacing above and below */
+  }
+  
+  .add-book-btn {
+    background-color: #8a6d52; /* your requested color */
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    padding: 15px 40px;       /* bigger size */
+    font-size: 20px;           /* larger text */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2); /* subtle shadow */
+  }
+  
+  .add-book-btn:hover {
+    background-color: #71513f; /* slightly darker on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+  }
+  
+  .add-book-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  }
   

@@ -1,0 +1,38 @@
+<div class="admin-actions">
+    <button class="add-book-btn" routerLink="/admin/book-add">
+      Add Book
+    </button>
+  </div>
+<div class="search-bar-container">
+    <input
+      type="text"
+      placeholder="Search by ISBN"
+      [(ngModel)]="searchIsbn"
+      (input)="filterBooksByIsbn()"
+    />
+  
+    <input
+      type="text"
+      placeholder="Search by Name"
+      [(ngModel)]="searchName"
+      (input)="filterBooksByName()"
+    />
+  </div>
+  
+  
+  <div class="book-grid">
+    <div *ngIf="filteredBooks.length === 0" class="no-results-container">
+      <div class="no-results">
+        No books found for the given search.
+      </div>
+    </div>
+  
+    <div *ngFor="let book of filteredBooks" (click)="viewBookDetails(book)">
+      <h2 class="book-title">{{ book?.title }}</h2>
+      <p class="book-author">By {{ book?.author }}</p>
+      <p class="book-description">{{ book?.description }}</p>
+      <p class="book-description">{{ book?.isAvailable ? 'Available' : 'Not Available' }}</p>
+      <button >Show More</button>
+    </div>
+  </div>
+  

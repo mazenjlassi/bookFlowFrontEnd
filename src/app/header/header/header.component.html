@@ -1,24 +1,30 @@
 <header class="header">
   <div class="header-container">
+    <!-- Logo -->
     <div class="logo">
       <span class="logo-icon">📚</span>
       <h1 class="logo-text">BookFlow</h1>
     </div>
 
+    <!-- Navigation -->
     <nav class="nav">
       <ul class="nav-list">
         <li class="nav-item" *ngFor="let link of navLinks">
-          <!-- Use routerLink for Angular routing -->
           <a class="nav-link" [routerLink]="link.path">{{ link.label }}</a>
         </li>
       </ul>
     </nav>
 
+    <!-- User Actions -->
     <div class="user-actions">
-      <button class="user-btn" *ngIf="authService.isLoggedIn()" (click)="logout()">
+      <button *ngIf="authService.isLoggedIn()" class="user-btn" (click)="logout()">
         <span class="btn-text">Logout</span>
         <span class="user-icon">👤</span>
       </button>
+
+      <a *ngIf="!authService.isLoggedIn()" routerLink="/login" class="login-btn">
+        Login
+      </a>
     </div>
   </div>
 </header>

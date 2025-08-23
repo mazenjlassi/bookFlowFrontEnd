@@ -4,6 +4,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './auth/register/register/register.component';
 import { LoginComponent } from './auth/login/login/login.component';
@@ -15,6 +16,10 @@ import { AuthService } from './services/auth/auth.service';
 import { AuthInterceptor } from './services/auth/auth-interceptor.service';
 import { ConfirmLoanComponent } from './confirm-loan/confirm-loan/confirm-loan.component';
 import { UserLoansComponent } from './user-loans/user-loans/user-loans.component';
+import { AddBookComponent } from './admin/book/add-book/add-book.component';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard/admin-dashboard.component';
+import { ManageBookComponent } from './admin/manage-book/manage-book/manage-book.component';
+import { BookComponent } from './admin/book/book/book.component';
 
 @NgModule({
   declarations: [
@@ -26,14 +31,19 @@ import { UserLoansComponent } from './user-loans/user-loans/user-loans.component
     HomeComponent,
     BookDetailsComponent,
     ConfirmLoanComponent,
-    UserLoansComponent
+    UserLoansComponent,
+    AddBookComponent,
+    AdminDashboardComponent,
+    ManageBookComponent,
+    BookComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,  
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+      
   ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true } ],
   bootstrap: [AppComponent]

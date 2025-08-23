@@ -54,9 +54,18 @@ export class LoginComponent {
           const decoded: any = jwtDecode(response.accessToken);
           const userId = decoded["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"];
           localStorage.setItem('userId', userId);
+
+          // Get role from token
+          const role = this.authService.getCurrentUserRole();
+          
+
   
           // Navigate to home page
-          this.router.navigate(['/home']);
+          if (role === 'ADMIN') {
+            this.router.navigate(['/admin/dashboard']);
+          } else {
+            this.router.navigate(['/home']);
+          }
         },
         error: (err) => {
           console.error(err);

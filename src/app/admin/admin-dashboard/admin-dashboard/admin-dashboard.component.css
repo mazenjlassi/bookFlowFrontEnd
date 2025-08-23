@@ -1,0 +1,193 @@
+.dashboard-container {
+    padding: 20px;
+    font-family: 'Lato', sans-serif;
+    background-color: #f9f5f0;
+    min-height: 100vh;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #5C4033;
+    font-weight: 700;
+  }
+  
+  .stats-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  
+  .stat-card {
+    background-color: #fff3e0;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 200px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    transition: transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .stat-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+  }
+  
+  .stat-card.books::before {
+    background-color: #A67B5B;
+  }
+  
+  .stat-card.loans::before {
+    background-color: #8D6E63;
+  }
+  
+  .stat-card.users::before {
+    background-color: #6D4C41;
+  }
+  
+  .stat-card.overdue::before {
+    background-color: #4E342E;
+  }
+  
+  .stat-card h2 {
+    font-size: 2.2rem;
+    margin: 0;
+    color: #5C4033;
+  }
+  
+  .stat-card p {
+    margin: 5px 0 0 0;
+    font-size: 1.1rem;
+    color: #5C4033;
+  }
+  
+  .charts-container {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .chart-card {
+    background-color: #fff3e0;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .chart-card h3 {
+    color: #5C4033;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 700;
+  }
+  
+  .recent-activities {
+    background-color: #fff3e0;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+  }
+  
+  .recent-activities h3 {
+    color: #5C4033;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 700;
+  }
+  
+  .activity-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .activity-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(92, 64, 51, 0.1);
+  }
+  
+  .activity-item:last-child {
+    border-bottom: none;
+  }
+  
+  .activity-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #A67B5B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    color: white;
+  }
+  
+  .activity-content {
+    flex: 1;
+  }
+  
+  .activity-content h4 {
+    margin: 0;
+    color: #5C4033;
+    font-size: 1.1rem;
+  }
+  
+  .activity-content p {
+    margin: 5px 0 0 0;
+    color: #5C4033;
+    opacity: 0.8;
+  }
+  
+  .activity-time {
+    color: #5C4033;
+    opacity: 0.7;
+    font-size: 0.9rem;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .stats-cards {
+      gap: 15px;
+    }
+    
+    .stat-card {
+      width: 160px;
+      height: 100px;
+    }
+    
+    .stat-card h2 {
+      font-size: 1.8rem;
+    }
+    
+    .charts-container {
+      flex-direction: column;
+    }
+  }
+  
+  /* Chart canvas styling */
+  canvas {
+    width: 100% !important;
+    height: 250px !important;
+  }

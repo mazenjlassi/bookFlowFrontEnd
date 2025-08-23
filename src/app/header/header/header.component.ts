@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
+import { Router } from '@angular/router';
+
+
+interface NavLink {
+  label: string;
+  path: string;
+}
 
 @Component({
   selector: 'app-header',
@@ -8,22 +15,37 @@ import { AuthService } from '../../services/auth/auth.service';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  navLinks: { label: string, path: string }[] = [];
+  navLinks: NavLink[] = []; 
 
-  constructor(public authService: AuthService) {}
+  isAdmin: boolean = false;
+
+  constructor(public authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-    this.navLinks = [
-      { label: 'Home', path: '/home' },
-      { label: 'My Loans', path: `/user-loans/${this.authService.getUserId()}` },
-      { label: 'About', path: '/about' },
-      { label: 'Contact', path: '/contact' }
-    ];
-  }
+    const role = this.authService.getCurrentUserRole();
 
-  logout() {
+    if (role === 'ADMIN') {
+      this.isAdmin = true;
+      this.navLinks = [
+        { label: 'Admin Dashboard', path: '/admin/dashboard' },
+        { label: 'Manage Books', path: '/admin/manage-book' },
+        { label: 'Manage Users', path: '/admin/users' },
+        {label: 'Manage Loans', path:'/admin/Loans'}
+      ];
+    } else {
+      this.isAdmin = false;
+      this.navLinks = [
+        { label: 'Home', path: '/home' },
+        { label: 'My Loans', path: 'user-loans/:userId' },
+        { label: 'Profile', path: '/profile' }
+      ];
+    }
+  }
+  
+
+  logout(): void {
     this.authService.logout();
+    this.router.navigate(['/']);
   }
-
 
 }
