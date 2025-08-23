@@ -12,6 +12,7 @@
       </span>
     </p>
   
+    <!-- Admin Actions -->
     <div class="admin-actions">
       <button class="toggle-btn" (click)="toggleAvailability()">
         {{ book.isAvailable ? 'Mark as Unavailable' : 'Mark as Available' }}
@@ -20,18 +21,25 @@
     </div>
   
     <!-- Ratings / Comments -->
-    <div class="comments-section" *ngIf="book.ratings?.length">
+    <div class="comments-section" *ngIf="ratings.length > 0">
       <h3>Ratings & Comments</h3>
-      <div *ngFor="let rating of book.ratings" class="comment-item">
-        <strong>{{ rating.userName || 'Anonymous' }}</strong>
+      <div *ngFor="let rating of ratings" class="comment-item">
         <span class="stars">
           <ng-container *ngFor="let star of [1,2,3,4,5]">
-            <span [class.filled]="star <= rating.stars">★</span>
+            <span [class.filled]="star <= rating.score">★</span>
           </ng-container>
         </span>
         <p>{{ rating.comment }}</p>
         <small>{{ rating.date | date:'short' }}</small>
+
+        <button class="delete-rating-btn" (click)="deleteRating(rating.id)">
+            Delete
+          </button>
       </div>
+    </div>
+  
+    <div *ngIf="ratings.length === 0" class="no-ratings">
+      <p>No ratings yet for this book.</p>
     </div>
   </div>
   

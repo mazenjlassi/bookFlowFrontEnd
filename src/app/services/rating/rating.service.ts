@@ -36,4 +36,11 @@ export class RatingService {
   getUserRating(bookId: string, userId: string): Observable<Rating | null> {
     return this.http.get<Rating | null>(`${this.apiUrl}/book/${bookId}/user/${userId}`);
   }
+
+// DELETE api/rating/{id}
+deleteRating(id: string): Observable<string> {
+  return this.http.delete(`${this.apiUrl}/${id}`, { responseType: 'text' });
+}
+
+
 }
