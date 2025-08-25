@@ -50,5 +50,14 @@ export class LoanService {
   deleteLoan(loanId: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/delete/${loanId}`);
   }
+
+  getLoansByBook(bookId: string): Observable<Loan[]> {
+    return this.http.get<Loan[]>(`${this.apiUrl}/book/${bookId}`);
+  }
+  
+  approveLoan(loanId: string): Observable<Loan> {
+    return this.http.put<Loan>(`${this.apiUrl}/approve/${loanId}`, {});
+  }
+  
   
 }

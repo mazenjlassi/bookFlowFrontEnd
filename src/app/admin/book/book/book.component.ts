@@ -4,6 +4,8 @@ import { BookService } from '../../../services/book/book.service';
 import { RatingService } from '../../../services/rating/rating.service';
 import { Book } from '../../../models/book';
 import { Rating } from '../../../models/rating';
+import { LoanService } from '../../../services/loan/loan.service';
+import { Loan } from '../../../models/loan';
 
 @Component({
   selector: 'app-book',
@@ -16,12 +18,15 @@ export class BookComponent {
   book: Book | null = null;
   ratings: Rating[] = [];
   isLoading: boolean = false;
+  loans: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private bookService: BookService,
-    private ratingService: RatingService
+    private ratingService: RatingService,
+    private loanService : LoanService
+
   ) {}
 
   ngOnInit(): void {
@@ -29,6 +34,7 @@ export class BookComponent {
     if (bookId) {
       this.loadBook(bookId);
       this.loadRatings(bookId);
+      this.getLoansByBookId(bookId);
     }
   }
 
@@ -102,6 +108,33 @@ export class BookComponent {
         alert("Failed to delete rating.");
       }
     });
+  }
+  
+
+  getLoansByBookId(bookId: string) {
+    this.loanService.getLoansByBook(bookId).subscribe({
+      next: (data) => this.loans = data,
+      error: (err) => console.error('Error fetching loans:', err)
+    });
+  }
+
+  approveLoan(loanId: string): void {
+    this.loanService.approveLoan(loanId).subscribe({
+      next: (loan) => {
+        alert('Loan approved successfully!');
+        // Mettre à jour la liste ou l’UI
+      },
+      error: (err) => {
+        console.error('Failed to approve loan:', err);
+        alert('Failed to approve loan.');
+      }
+    });
+  }
+  
+
+  isLoanPending(loan: Loan): boolean {
+    // check if the status is still EN_COURS
+    return loan.status ==="0";
   }
   
   

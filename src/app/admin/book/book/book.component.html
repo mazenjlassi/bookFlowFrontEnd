@@ -1,49 +1,73 @@
-<div class="book-details-container" *ngIf="book; else loading">
-    <h1 class="book-title">{{ book.title }}</h1>
-    <p><strong>Author:</strong> {{ book.author }}</p>
-    <p><strong>ISBN:</strong> {{ book.isbn }}</p>
-    <p><strong>Publisher:</strong> {{ book.publisher }}</p>
-    <p><strong>Published Date:</strong> {{ book.publishedDate | date }}</p>
-    <p><strong>Description:</strong> {{ book.description }}</p>
-    <p>
-      <strong>Status:</strong>
-      <span [ngClass]="{ 'available': book.isAvailable, 'not-available': !book.isAvailable }">
-        {{ book.isAvailable ? 'Available' : 'Not Available' }}
-      </span>
-    </p>
-  
-    <!-- Admin Actions -->
-    <div class="admin-actions">
-      <button class="toggle-btn" (click)="toggleAvailability()">
-        {{ book.isAvailable ? 'Mark as Unavailable' : 'Mark as Available' }}
-      </button>
-      <button class="delete-btn" (click)="deleteBook()">Delete Book</button>
-    </div>
-  
-    <!-- Ratings / Comments -->
-    <div class="comments-section" *ngIf="ratings.length > 0">
-      <h3>Ratings & Comments</h3>
-      <div *ngFor="let rating of ratings" class="comment-item">
-        <span class="stars">
-          <ng-container *ngFor="let star of [1,2,3,4,5]">
-            <span [class.filled]="star <= rating.score">★</span>
-          </ng-container>
-        </span>
-        <p>{{ rating.comment }}</p>
-        <small>{{ rating.date | date:'short' }}</small>
+<div class="book-details-container" *ngIf="book">
+  <h1 class="book-title">{{ book.title }}</h1>
+  <p><strong>Author:</strong> {{ book.author }}</p>
+  <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+  <p><strong>Publisher:</strong> {{ book.publisher }}</p>
+  <p><strong>Published Date:</strong> {{ book.publishedDate | date }}</p>
+  <p><strong>Description:</strong> {{ book.description }}</p>
+  <p>
+    <strong>Status:</strong>
+    <span [ngClass]="{ 'available': book.isAvailable, 'not-available': !book.isAvailable }">
+      {{ book.isAvailable ? 'Available' : 'Not Available' }}
+    </span>
+  </p>
 
-        <button class="delete-rating-btn" (click)="deleteRating(rating.id)">
+  <!-- Admin Actions -->
+  <div class="admin-actions">
+    <button class="toggle-btn" (click)="toggleAvailability()">
+      {{ book.isAvailable ? 'Mark as Unavailable' : 'Mark as Available' }}
+    </button>
+    <button class="delete-btn" (click)="deleteBook()">Delete Book</button>
+  </div>
+
+  <!-- Ratings + Loans side by side -->
+  <div class="ratings-loans-container">
+    
+    <!-- Ratings -->
+    <div class="ratings-section">
+      <h3>Ratings & Comments</h3>
+      <div *ngIf="ratings.length > 0; else noRatings">
+        <div *ngFor="let rating of ratings" class="comment-item">
+          <span class="stars">
+            <ng-container *ngFor="let star of [1,2,3,4,5]">
+              <span [class.filled]="star <= rating.score">★</span>
+            </ng-container>
+          </span>
+          <p>{{ rating.comment }}</p>
+          <small>{{ rating.date | date:'short' }}</small>
+
+          <button class="delete-rating-btn" (click)="deleteRating(rating.id)">
             Delete
           </button>
+        </div>
+      </div>
+      <ng-template #noRatings>
+        <p>No ratings yet for this book.</p>
+      </ng-template>
+    </div>
+    <div class="loans-section" *ngIf="loans.length > 0">
+      <h3>Loans</h3>
+      <div *ngFor="let loan of loans" class="loan-item">
+        <p><strong>User:</strong> {{ loan.user.fullName }}</p>
+        <p><strong>Start Date:</strong> {{ loan.startDate | date }}</p>
+        <p><strong>Return Date:</strong> {{ loan.returnDate | date }}</p>
+        <span class="status-badge"
+        [ngClass]="['en-cours','approuve','retourne','en-retard','annule'][loan.status]">
+        {{ ['EN-COURS','APPROUVÉ','RETOURNÉ','EN RETARD','ANNULÉ'][loan.status] || 'INCONNU' }}
+        </span>
+        <button *ngIf="loan.status === 0" 
+        class="btn btn-success" 
+        (click)="approveLoan(loan.id)">
+         Approve
+        </button>
       </div>
     </div>
-  
-    <div *ngIf="ratings.length === 0" class="no-ratings">
-      <p>No ratings yet for this book.</p>
+    
+    <div *ngIf="loans.length === 0">
+      <p>No loans for this book yet.</p>
     </div>
-  </div>
-  
-  <ng-template #loading>
-    <p>Loading book details...</p>
-  </ng-template>
-  
+    
+
+<ng-template #loading>
+  <p>Loading book details...</p>
+</ng-template>

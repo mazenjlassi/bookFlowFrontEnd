@@ -101,4 +101,25 @@
     transform: scale(0.95);
   }
   
+  .ratings-loans-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .ratings-section, .loans-section {
+    flex: 1; /* each takes 50% */
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .comment-item, .loan-item {
+    background: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+  }
   
