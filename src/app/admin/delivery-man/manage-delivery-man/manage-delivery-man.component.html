@@ -1,0 +1,43 @@
+<div class="delivery-container">
+    <div class="header-section">
+      <h2 class="page-title">🚚 All Delivery Men</h2>
+      <button class="btn-add-secondary" (click)="gotoAdd()">
+        + Add Delivery Man
+      </button>
+    </div>
+  
+    <div *ngIf="isLoading" class="loading-section">
+      <div class="spinner"></div>
+      <p>Loading delivery men...</p>
+    </div>
+  
+    <div *ngIf="!isLoading && deliveryMen.length > 0" class="table-wrapper">
+      <table class="delivery-table">
+        <thead>
+          <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Vehicle Number</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let man of deliveryMen">
+            <td>{{ man.fullName }}</td>
+            <td>{{ man.email }}</td>
+            <td>{{ man.phoneNumber }}</td>
+            <td>{{ man.vehicleNumber }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div *ngIf="!isLoading && deliveryMen.length === 0" class="empty-section">
+      <p>No delivery men found.</p>
+      <button class="btn-add-secondary" (click)="gotoAdd()">
+        + Add Delivery Man
+      </button>
+      
+    </div>
+  </div>
+  

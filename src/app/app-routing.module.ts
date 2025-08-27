@@ -10,6 +10,9 @@ import { AddBookComponent } from './admin/book/add-book/add-book.component';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard/admin-dashboard.component';
 import { ManageBookComponent } from './admin/book/manage-book/manage-book.component';
 import { BookComponent } from './admin/book/book/book.component';
+import { DeliveryComponent } from './admin/delivery/delivery.component';
+import { DeliveryManComponent } from './admin/delivery-man/delivery-man/delivery-man.component';
+import { ManageDeliveryManComponent } from './admin/delivery-man/manage-delivery-man/manage-delivery-man.component';
 
 const routes: Routes = [ 
   { path: 'register', component: RegisterComponent },
@@ -21,6 +24,9 @@ const routes: Routes = [
   {path:'admin/dashboard',component:AdminDashboardComponent},
   {path: 'admin/manage-book',component:ManageBookComponent},
   {path: 'admin/book/:id',component:BookComponent},
+  {path: 'admin/delivery', component:DeliveryComponent},
+  {path: 'admin/delivery-man', component :DeliveryManComponent},
+  {path:'admin/manage-delivery-man',component:ManageDeliveryManComponent},
   { path: '', component: LoginComponent },
  
   

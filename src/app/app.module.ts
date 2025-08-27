@@ -20,6 +20,9 @@ import { AddBookComponent } from './admin/book/add-book/add-book.component';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard/admin-dashboard.component';
 import { ManageBookComponent } from './admin/book/manage-book/manage-book.component';
 import { BookComponent } from './admin/book/book/book.component';
+import { DeliveryComponent } from './admin/delivery/delivery.component';
+import { DeliveryManComponent } from './admin/delivery-man/delivery-man/delivery-man.component';
+import { ManageDeliveryManComponent } from './admin/delivery-man/manage-delivery-man/manage-delivery-man.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { BookComponent } from './admin/book/book/book.component';
     AddBookComponent,
     AdminDashboardComponent,
     ManageBookComponent,
-    BookComponent
+    BookComponent,
+    DeliveryComponent,
+    DeliveryManComponent,
+    ManageDeliveryManComponent
   ],
   imports: [
     BrowserModule,

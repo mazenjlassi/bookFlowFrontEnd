@@ -1,0 +1,42 @@
+
+<div class="delivery-man-form">
+    <h2>Create Delivery Man</h2>
+  
+    <form (ngSubmit)="createDeliveryMan()">
+      <div>
+        <label>Username</label>
+        <input type="text" [(ngModel)]="deliveryMan.username" name="username" required>
+      </div>
+  
+      <div>
+        <label>Full Name</label>
+        <input type="text" [(ngModel)]="deliveryMan.fullName" name="fullName" required>
+      </div>
+  
+      <div>
+        <label>Email</label>
+        <input type="email" [(ngModel)]="deliveryMan.email" name="email" required>
+      </div>
+  
+      <div>
+        <label>Password</label>
+        <input type="password" [(ngModel)]="deliveryMan.password" name="password" required>
+      </div>
+  
+      <div>
+        <label>Phone Number</label>
+        <input type="text" [(ngModel)]="deliveryMan.phoneNumber" name="phoneNumber" required>
+      </div>
+  
+      <div>
+        <label>Vehicle Number</label>
+        <input type="text" [(ngModel)]="deliveryMan.vehicleNumber" name="vehicleNumber" required>
+      </div>
+  
+      <button type="submit" [disabled]="isLoading">Create</button>
+    </form>
+  
+    <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  </div>
+  

@@ -1,0 +1,29 @@
+<div class="delivery-container" *ngIf="!isLoading; else loading">
+    <table class="delivery-table">
+      <thead>
+        <tr>
+          <th>Book</th>
+          <th>User</th>
+          <th>Email</th>
+          <th>Status</th>
+          <th>Delivery Date</th>
+          <th>Delivery Man</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let delivery of deliveries">
+          <td>{{ delivery.loan.book.title }}</td>
+          <td>{{ delivery.loan.user.username }}</td>
+          <td>{{ delivery.loan.user.email }}</td>
+          <td>{{ getStatusText(delivery.status) }}</td>
+          <td>{{ delivery.deliveryDate | date:'short' }}</td>
+          <td>{{ delivery.deliveryMan?.username || "still "}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <ng-template #loading>
+    <p>Loading deliveries...</p>
+  </ng-template>
+  

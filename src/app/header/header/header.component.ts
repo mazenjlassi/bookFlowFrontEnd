@@ -30,7 +30,8 @@ export class HeaderComponent {
         { label: 'Admin Dashboard', path: '/admin/dashboard' },
         { label: 'Manage Books', path: '/admin/manage-book' },
         { label: 'Manage Users', path: '/admin/users' },
-        {label: 'Manage Loans', path:'/admin/Loans'}
+        {label: 'Manage Deliveries', path:'admin/delivery'},
+        {label: 'Manage Delivery Man', path:'admin/manage-delivery-man'}
       ];
     } else {
       this.isAdmin = false;
