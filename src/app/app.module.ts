@@ -23,6 +23,8 @@ import { BookComponent } from './admin/book/book/book.component';
 import { DeliveryComponent } from './admin/delivery/delivery.component';
 import { DeliveryManComponent } from './admin/delivery-man/delivery-man/delivery-man.component';
 import { ManageDeliveryManComponent } from './admin/delivery-man/manage-delivery-man/manage-delivery-man.component';
+import { DeliveriesComponent } from './deliveryman/deliveries/deliveries.component';
+import { MyDeliveriesComponent } from './deliveryman/my-deliveries/my-deliveries.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { ManageDeliveryManComponent } from './admin/delivery-man/manage-delivery
     BookComponent,
     DeliveryComponent,
     DeliveryManComponent,
-    ManageDeliveryManComponent
+    ManageDeliveryManComponent,
+    DeliveriesComponent,
+    MyDeliveriesComponent
   ],
   imports: [
     BrowserModule,

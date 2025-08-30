@@ -1,0 +1,44 @@
+<div class="my-deliveries-page">
+    <h2 class="section-title">📦 My Deliveries</h2>
+  
+    <!-- Loading -->
+    <div *ngIf="isLoading" class="loading text-center">
+      <p>Loading deliveries...</p>
+    </div>
+  
+    <!-- No deliveries -->
+    <div *ngIf="!isLoading && myDeliveries.length === 0" class="no-deliveries">
+      You have no assigned deliveries.
+    </div>
+  
+    <!-- Deliveries Table -->
+    <div *ngIf="!isLoading && myDeliveries.length > 0" class="table-wrapper">
+      <table class="deliveries-table">
+        <thead>
+          <tr>
+            <th>Status</th>
+            <th>Delivery Date</th>
+            <th>User Email</th>
+            <th>User Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let delivery of myDeliveries">
+            <td>
+              <span [ngClass]="{
+                  'status-badge pending': +delivery.status === 0,
+                  'status-badge delivered': +delivery.status === 1,
+                  'status-badge late': +delivery.status === 2
+                }">
+                {{ +delivery.status === 0 ? 'PENDING' : (+delivery.status === 1 ? 'DELIVERED' : 'LATE') }}
+              </span>
+            </td>
+            <td>{{ delivery.deliveryDate | date:'short' }}</td>
+            <td>{{ delivery.loan.user.email }}</td>
+            <td>{{ delivery.loan.user.username }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

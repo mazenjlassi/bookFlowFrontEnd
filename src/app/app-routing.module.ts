@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login/login.component';
 import { RegisterComponent } from './auth/register/register/register.component';
@@ -13,6 +13,8 @@ import { BookComponent } from './admin/book/book/book.component';
 import { DeliveryComponent } from './admin/delivery/delivery.component';
 import { DeliveryManComponent } from './admin/delivery-man/delivery-man/delivery-man.component';
 import { ManageDeliveryManComponent } from './admin/delivery-man/manage-delivery-man/manage-delivery-man.component';
+import { DeliveriesComponent } from './deliveryman/deliveries/deliveries.component';
+import { MyDeliveriesComponent } from './deliveryman/my-deliveries/my-deliveries.component';
 
 const routes: Routes = [ 
   { path: 'register', component: RegisterComponent },
@@ -27,6 +29,8 @@ const routes: Routes = [
   {path: 'admin/delivery', component:DeliveryComponent},
   {path: 'admin/delivery-man', component :DeliveryManComponent},
   {path:'admin/manage-delivery-man',component:ManageDeliveryManComponent},
+  {path:'deliveryman/deliveries',component:DeliveriesComponent},
+  {path:'deliveryman/my-deliveries',component:MyDeliveriesComponent},
   { path: '', component: LoginComponent },
  
   

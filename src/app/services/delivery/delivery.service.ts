@@ -14,4 +14,18 @@ export class DeliveryService {
   getAllDeliveries(): Observable<Delivery[]> {
     return this.http.get<Delivery[]>(this.apiUrl);
   }
+
+  getPendingDeliveries(): Observable<Delivery[]> {
+    return this.http.get<Delivery[]>(`${this.apiUrl}/get-pending`);
+  }
+  
+  assignDelivery(deliveryId: string, deliveryManId: string): Observable<Delivery> {
+    return this.http.post<Delivery>(`${this.apiUrl}/assign/${deliveryId}/${deliveryManId}`, {});
+  }
+
+
+    // Get deliveries assigned to the connected deliveryman
+    getMyDeliveries(deliveryManId: string): Observable<Delivery[]> {
+      return this.http.get<Delivery[]>(`${this.apiUrl}/get-by-deliveryman/${deliveryManId}`);
+    }
 }

@@ -33,13 +33,20 @@ export class HeaderComponent {
         {label: 'Manage Deliveries', path:'admin/delivery'},
         {label: 'Manage Delivery Man', path:'admin/manage-delivery-man'}
       ];
-    } else {
+    } else if (role === 'USER'){
       this.isAdmin = false;
       this.navLinks = [
         { label: 'Home', path: '/home' },
         { label: 'My Loans', path: 'user-loans/:userId' },
         { label: 'Profile', path: '/profile' }
       ];
+    }
+    else{
+      this.navLinks = [
+        { label: 'Deliveries Disponile', path: 'deliveryman/deliveries' },
+        { label: 'My Deliveries', path: 'deliveryman/my-deliveries' },
+      ];
+
     }
   }
   

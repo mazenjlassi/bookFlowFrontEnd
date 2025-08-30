@@ -1,0 +1,55 @@
+<div class="container mt-5 pending-deliveries">
+    <h2 class="section-title">📦 Pending Deliveries</h2>
+  
+    <!-- Loading indicator -->
+    <div *ngIf="isLoading" class="text-center loading">
+      <p>Loading deliveries...</p>
+    </div>
+  
+    <!-- No deliveries message -->
+    <div *ngIf="!isLoading && pendingDeliveries.length === 0" class="alert alert-info no-deliveries">
+      No pending deliveries available.
+    </div>
+  
+    <!-- Deliveries table -->
+    <div *ngIf="!isLoading && pendingDeliveries.length > 0" class="table-wrapper">
+      <table class="table deliveries-table">
+        <thead>
+          <tr>
+            <th>Status</th>
+            <th>Delivery Date</th>
+            <th>User Email</th>
+            <th>User Name</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let delivery of pendingDeliveries">
+            <td>
+              <span [ngClass]="{
+                  'status-badge pending': +delivery.status === 0,
+                  'status-badge delivered': +delivery.status === 1,
+                  'status-badge late': +delivery.status === 2
+                }">
+                {{ +delivery.status === 0 ? 'PENDING' : (+delivery.status === 1 ? 'DELIVERED' : 'LATE') }}
+              </span>
+            </td>
+  
+            <td>{{ delivery.deliveryDate | date:'short' }}</td>
+            <td>{{ delivery.loan.user.email || 'N/A' }}</td>
+            <td>{{ delivery.loan.user.username || 'N/A' }}</td>
+            <td>
+              <button 
+                *ngIf="+delivery.status === 0" 
+                class="btn btn-primary btn-sm"
+                (click)="assignDelivery(delivery.id)">
+                Assign to me
+              </button>
+              <span *ngIf="+delivery.status !== 0">--</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
