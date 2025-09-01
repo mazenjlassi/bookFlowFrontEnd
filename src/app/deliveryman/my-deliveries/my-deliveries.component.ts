@@ -40,5 +40,21 @@ export class MyDeliveriesComponent {
       }
     });
   }
+  markAsDelivered(deliveryId: string) {
+    this.deliveryService.updateDeliveryStatus(deliveryId, 2) // 2 = LIVRE
+      .subscribe({
+        next: (res) => {
+          console.log('Delivery updated:', res);
+          const index = this.myDeliveries.findIndex(d => d.id === deliveryId);
+          if (index !== -1) {
+            this.myDeliveries[index].status = "2";
+          }
+        },
+        error: (err) => console.error('Failed to update delivery:', err)
+      });
+  }
+  
+  
+  
 
 }

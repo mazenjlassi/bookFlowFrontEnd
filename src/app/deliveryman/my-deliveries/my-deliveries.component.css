@@ -107,4 +107,37 @@
     .deliveries-table { font-size: 0.85rem; }
     .deliveries-table { min-width: 100%; }
   }
-  
+ /* ====== Button Styling ====== */
+.btn-deliver {
+  background: linear-gradient(135deg, #28a745, #218838); /* Green gradient */
+  color: #fff;
+  font-weight: 600;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+
+/* Hover Effect */
+.btn-deliver:hover {
+  background: linear-gradient(135deg, #34d058, #2c974b);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
+/* Active Click Effect */
+.btn-deliver:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Disabled state (optional for future use) */
+.btn-deliver:disabled {
+  background: #c8e6c9;
+  color: #666;
+  cursor: not-allowed;
+  box-shadow: none;
+}

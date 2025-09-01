@@ -15,6 +15,9 @@ export class DeliveryService {
     return this.http.get<Delivery[]>(this.apiUrl);
   }
 
+
+  
+
   getPendingDeliveries(): Observable<Delivery[]> {
     return this.http.get<Delivery[]>(`${this.apiUrl}/get-pending`);
   }
@@ -28,4 +31,20 @@ export class DeliveryService {
     getMyDeliveries(deliveryManId: string): Observable<Delivery[]> {
       return this.http.get<Delivery[]>(`${this.apiUrl}/get-by-deliveryman/${deliveryManId}`);
     }
+
+    updateDeliveryStatus(deliveryId: string, status: number) {
+      return this.http.put(
+        `${this.apiUrl}/update-status/${deliveryId}`,
+        status, // send as number
+        { headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
+    returnBookByLoan(loanId: string): Observable<any> {
+      return this.http.post(`${this.apiUrl}/return-by-loan/${loanId}`, {});
+    }
+    
+    
+
+    
 }

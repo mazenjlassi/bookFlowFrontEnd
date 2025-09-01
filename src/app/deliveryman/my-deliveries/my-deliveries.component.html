@@ -30,12 +30,20 @@
                   'status-badge delivered': +delivery.status === 1,
                   'status-badge late': +delivery.status === 2
                 }">
-                {{ +delivery.status === 0 ? 'PENDING' : (+delivery.status === 1 ? 'DELIVERED' : 'LATE') }}
+                {{ +delivery.status === 0 ? 'PENDING' : (+delivery.status === 1 ? 'EN_COURS' : 'Delivered') }}
               </span>
             </td>
+            
+            <td>{{ delivery.id}}</td>
             <td>{{ delivery.deliveryDate | date:'short' }}</td>
             <td>{{ delivery.loan.user.email }}</td>
             <td>{{ delivery.loan.user.username }}</td>
+            <button 
+            *ngIf="+delivery.status === 1" 
+            (click)="markAsDelivered(delivery.id)" 
+            class="btn-deliver">
+            Mark as Delivered
+          </button>
           </tr>
         </tbody>
       </table>

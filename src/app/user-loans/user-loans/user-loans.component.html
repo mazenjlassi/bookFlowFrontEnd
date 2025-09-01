@@ -16,11 +16,15 @@
       <td>{{ loan.returnDate ? (loan.returnDate | date:'shortDate') : 'N/A' }}</td>
       <td>{{ loan.status }}</td>
       <td>
-        <button 
+        
+            <button 
           *ngIf="loan.status === 'EN_COURS'" 
           (click)="deleteLoan(loan.id)"
           class="delete-btn">
           Delete
+        </button>
+        <button [disabled]="loan.status === 'RETOURNE'" (click)="returnBook(loan.id)">
+          {{ loan.status === 'RETOURNE' ? 'Returned' : 'Return Book' }}
         </button>
       </td>
     </tr>

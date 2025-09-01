@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { LoanService } from '../../services/loan/loan.service';
 import { Loan } from '../../models/loan';
+import { DeliveryService } from '../../services/delivery/delivery.service';
+import { Delivery } from '../../models/delivery';
 
 @Component({
   selector: 'app-user-loans',
@@ -16,7 +18,7 @@ export class UserLoansComponent {
   isLoading: boolean = false;
   error: string = '';
 
-  constructor(private loanService: LoanService) { }
+  constructor(private loanService: LoanService, private deliveryService : DeliveryService) { }
 
   ngOnInit(): void {
     this.userId = localStorage.getItem('userId') || '';
@@ -55,6 +57,30 @@ export class UserLoansComponent {
         console.error(err);
         this.error = 'Failed to fetch loans';
         this.isLoading = false;
+      }
+    });
+  }
+  returnBook(loanId: string) {
+    console.log('Function called for loan:', loanId); // 🔹 Add this to debug
+
+    this.deliveryService.returnBookByLoan(loanId).subscribe({
+      next: (delivery: Delivery) => {
+        const deliveryManContact = delivery.deliveryMan
+          ? `${delivery.deliveryMan.username} / ${delivery.deliveryMan.email}`
+          : 'No delivery man assigned';
+
+        alert(
+          `✅ Book Returned!\n` +
+           
+          `please contact the  DeliveryMan: ${deliveryManContact}`
+        );
+
+        const loan = this.loans.find(l => l.id === delivery.loan.id);
+        if (loan) loan.status = delivery.loan.status;
+      },
+      error: (err) => {
+        console.error('Error returning book:', err);
+        alert('❌ Failed to return the book.');
       }
     });
   }
